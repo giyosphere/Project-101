@@ -49,6 +49,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+const nodisplay = {
+  display: 'none',
+};
+
 
 export default function SearchAppBar() {
   return (
@@ -66,6 +70,7 @@ export default function SearchAppBar() {
           >
             Brooke's Point Christian High School
           </Typography>
+        
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
