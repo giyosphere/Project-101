@@ -1,0 +1,35 @@
+import React, {createContext, useState, useContext} from "react";
+
+
+const AuthContext = createContext(null);
+
+export function AuthProvider({children}){
+  
+  const[user, setUser] = useState(null);
+
+  const login = (username, password) => {
+    if(username === 'admin' && password === 'admin123')
+    {
+      setUser({username: 'admin', role: 'admin'});
+      return true;
+    }
+
+    return false; 
+  }
+
+  const logout = () => {
+    setUser(null);
+  }
+
+  return(
+    <AuthContext.Provider value={{ user, login, logout}}>
+      {children}
+
+    </AuthContext.Provider>
+  )
+  
+} 
+
+export function useAuth(){
+  return useContext(AuthContext);
+}
