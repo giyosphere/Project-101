@@ -33,7 +33,7 @@ export default function Sidebar() {
       <List sx={{ width: 220, mt: 8}}>
         {menuItems.map((item) => (
           <ListItem key={item.text} disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={() => navigate(item.path)}> 
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItemButton>
