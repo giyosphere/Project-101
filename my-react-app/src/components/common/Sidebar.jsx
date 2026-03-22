@@ -10,19 +10,27 @@ import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import BarChartIcon from '@mui/icons-material/BarChart';
+import { useNavigate } from 'react-router-dom';
+
+
+
 
 const menuItems = [
-  { text: 'Dashboard', icon: <DashboardIcon /> },
-  { text: 'POS', icon: <PointOfSaleIcon /> },
-  { text: 'Products', icon: <InventoryIcon /> },
-  { text: 'Orders', icon: <ShoppingCartIcon /> },
-  { text: 'Reports', icon: <BarChartIcon /> },
+  { text: 'Dashboard', icon: <DashboardIcon />, path: '/dashboard'},
+  { text: 'POS', icon: <PointOfSaleIcon />, path: '/pos' },
+  { text: 'Products', icon: <InventoryIcon />, path: '/products' },
+  { text: 'Orders', icon: <ShoppingCartIcon />, path: '/orders' },
+  { text: 'Reports', icon: <BarChartIcon />, path:'/reports' },
 ];
 
 export default function Sidebar() {
+
+  const navigate = useNavigate();
+  
   return (
+
     <Drawer variant="permanent" anchor="left">
-      <List sx={{ width: 220, mt: 8 }}>
+      <List sx={{ width: 220, mt: 8}}>
         {menuItems.map((item) => (
           <ListItem key={item.text} disablePadding>
             <ListItemButton>
