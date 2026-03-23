@@ -11,6 +11,9 @@ import InventoryIcon from '@mui/icons-material/Inventory';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';  
+import LogOutIcon from '@mui/icons-material/Logout';
+
 
 
 
@@ -25,7 +28,15 @@ const menuItems = [
 
 export default function Sidebar() {
 
-  const navigate = useNavigate();
+const navigate = useNavigate(); 
+const { logout } = useAuth();
+
+  const handlelogout = () => {
+    logout();
+    navigate('/')
+
+  };
+ 
   
   return (
 
@@ -38,8 +49,21 @@ export default function Sidebar() {
               <ListItemText primary={item.text} />
             </ListItemButton>
           </ListItem>
-        ))}
+        ))} 
+
+
+        <ListItem disablePadding>
+          <ListItemButton onClick={handlelogout}>
+            <ListItemIcon>
+              <LogOutIcon/>
+            
+            </ListItemIcon>
+              <ListItemText primary="Logout"/>
+          </ListItemButton>
+        </ListItem>
       </List>
+     
     </Drawer>
   );
 }
+

@@ -4,21 +4,29 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Button from '../components/common/Button';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext';
-
-
-
-
 export default function LoginPage() {
 
-  const {login} = useAuth();
+   const { login } = useAuth();
 
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
 
+
+
+  const navigate = useNavigate();
+
   const handleLogin = () => {
-    console.log('Username:', username);
-    console.log('Password:', password);
+
+    const success = login(username, password);
+   if(success){
+    navigate('/dashboard');
+  
+  }else{
+    alert('invalid Credentials')
+   }
+
   };
 
   return (
