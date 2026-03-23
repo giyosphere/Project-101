@@ -11,9 +11,9 @@ const sampleProducts = [
   { id: 6, name: 'Product 6', price: 850, stock: 16 },
   { id: 7, name: 'Product 7', price: 326, stock: 8 },
   { id: 8, name: 'Product 8', price: 150, stock: 2},
-  { id: 8, name: 'Product 8', price: 150, stock: 2},
-  { id: 8, name: 'Product 8', price: 150, stock: 2},
-  { id: 8, name: 'Product 8', price: 150, stock: 2}
+  { id: 9, name: 'Product 8', price: 150, stock: 2},
+  { id: 10, name: 'Product 8', price: 150, stock: 2},
+  { id: 11, name: 'Product 8', price: 150, stock: 2}
   
 ];
 

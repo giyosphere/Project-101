@@ -20,7 +20,7 @@ export default function ProductCard({ name, price, stock }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <BuWtton label="Edit" variant="outlined" />
+        <Button label="Edit" variant="outlined" />
         <Button label="Delete" variant="text" />
       </CardActions>
     </Card>
