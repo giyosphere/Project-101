@@ -7,12 +7,12 @@ const sampleProducts = [
   { id: 2, name: 'Product 2', price: 200, stock: 5 },
   { id: 3, name: 'Product 3', price: 3450, stock: 4 },
   { id: 4, name: 'Product 4', price: 800, stock: 8 },
-  { id: 5, name: 'Product 5', price: 1100, stock: 16 },
+  { id: 5, name: 'Product 6', price: 1100, stock: 16 },
   { id: 6, name: 'Product 6', price: 850, stock: 16 },
   { id: 7, name: 'Product 7', price: 326, stock: 8 },
-  { id: 8, name: 'Product 8', price: 150, stock: 2},
-  { id: 9, name: 'Product 8', price: 150, stock: 2},
-  { id: 10, name: 'Product 8', price: 150, stock: 2},
+  { id: 8, name: 'Product 3', price: 150, stock: 2},
+  { id: 9, name: 'Product 3', price: 150, stock: 2},
+  { id: 10, name: 'Product 3', price: 150, stock: 2},
   { id: 11, name: 'Product 8', price: 150, stock: 2}
   
 ];

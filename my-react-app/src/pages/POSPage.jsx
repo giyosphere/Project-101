@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import Layout from "../components/common/Layout";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import { Car } from "lucide-react";
+
 
 const statpos = [
   { label: 'Ordered Items'},
@@ -22,8 +22,8 @@ export default function Pospage(){
 
 
     {statpos.map((stat) => (  
-    <Box sx={{display: 'flex', flexDirection: 'column', m: '10px'}}>
-          <Card key={stat.label} sx={{minWidth: 800, minHeight: 200, overflow: 'visible'}}>
+    <Box sx={{display: 'flex', flexDirection: 'row', m: '10px'}}>
+          <Card key={stat.label} sx={{minWidth: 300, minHeight: 200}}>
             <CardContent>
               <Typography>
                {stat.label}
