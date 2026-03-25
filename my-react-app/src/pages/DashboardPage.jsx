@@ -15,12 +15,12 @@ import Layout from '../components/common/Layout';
 
 
 const stats = [
-  { label: 'Total Revenue', value: '₱0.00', icon: <AttachMoneyIcon sx={{width: 50, height: 50}}/> },
-  { label: 'Total Orders', value: '0', icon: <ShoppingCartIcon sx={{width: 50, height: 50}}/> },
-  { label: 'Total Items Sold', value: '0', icon: <InventoryIcon sx={{width: 50, height: 50}}/>},
-  { label: 'Total Products', value: '0', icon: <CategoryIcon sx={{width: 50, height: 50}}/>},
-  { label: 'Low Stock', value: '0', icon: <WarningIcon sx={{width: 50, height: 50}}/>},
-  { label: 'Out of stock', value: '0', icon: <RemoveShoppingCartIcon sx={{width: 50, height: 50}}/>},
+  { label: 'Total Revenue', value: '₱0.00', icon: <AttachMoneyIcon sx={{color: '#1976d2'}}/>},
+  { label: 'Total Orders', value: '0', icon: <ShoppingCartIcon sx={{color: '#2e7d32'}}/> },
+  { label: 'Total Items Sold', value: '0', icon: <InventoryIcon sx={{color: '#0288d1' }}/>},
+  { label: 'Total Products', value: '0', icon: <CategoryIcon sx={{color: '#9c27b0'}}/>},
+  { label: 'Low Stock', value: '0', icon: <WarningIcon sx={{color: '#f57c00'}}/>},
+  { label: 'Out of stock', value: '0', icon: <RemoveShoppingCartIcon sx={{ color: '#d32f2f'}}/>  },
 ];
 
 export default function DashboardPage() {
@@ -29,13 +29,17 @@ export default function DashboardPage() {
       <Typography variant="h3" mb={3}>Dashboard</Typography>
 
       <Box sx={{ display: 'flex', gap: 3, flexWrap: 'wrap'}}>
+
         {stats.map((stat) => (
           <Card key={stat.label} sx={{ minWidth: 200 }}>
-            
             <CardContent>
-              <Box sx={{display: 'flex', flexDirection:'column'}}>
+             
+              <Box sx={{display: 'flex', flexDirection:'column', gap: 3}}>
+              <Box sx={{bgcolor: 'white', marginRight: 25, borderRadius: '1cap', padding: 2, boxShadow:' 5px 5px lightgrey', border: 'solid 0.1px'
+              }}>
               {stat.icon}
-              <Typography variant="h6" color="blue">
+              </Box>
+              <Typography variant="h6" color="grey">
                 {stat.label}
               </Typography>
             </Box>
@@ -45,6 +49,7 @@ export default function DashboardPage() {
             </CardContent>
           </Card>
         ))}
+
       </Box>
     </Layout>
   );
