@@ -7,7 +7,7 @@ import Button from '../common/Button';
 
 
 
-export default function ProductCard({ name, price, stock }) {
+export default function ProductCard({ name, price, stock, onAddToCart }) {
   return (
     <Card sx={{ width: 200 }}>
       <CardContent>
@@ -20,9 +20,19 @@ export default function ProductCard({ name, price, stock }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button label="Edit" variant="outlined" />
-        <Button label="Delete" variant="text" />
+        { onAddToCart ? (
+          <Button label="Add to cart" variant='contained' onClick={onAddToCart}/>
+        ) 
+        : (
+            <>
+             <Button label="Edit" variant= 'contained'/>
+          <Button label="Delete" variant='contained'/>
+
+            </>
+         
+        )}
       </CardActions>
+        
     </Card>
   );
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import ProductCard from './ProductCards';
 
+
 const sampleProducts = [
   { id: 1, name: 'Product 1', price: 100, stock: 10 },
   { id: 2, name: 'Product 2', price: 200, stock: 5 },
@@ -17,7 +18,7 @@ const sampleProducts = [
   
 ];
 
-export default function ProductList({ searchQuery }) {
+export default function ProductList({ searchQuery, onAddToCart}) {
   const filteredProducts = sampleProducts.filter((product) =>
     product.name.toLowerCase().includes(searchQuery?.toLowerCase() || '')
   );
@@ -30,6 +31,7 @@ export default function ProductList({ searchQuery }) {
           name={product.name}
           price={product.price}
           stock={product.stock}
+          onAddToCart = {() =>  onAddToCart(items)}
         />
       ))}
     </Box>
