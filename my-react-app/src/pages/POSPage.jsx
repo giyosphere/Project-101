@@ -13,7 +13,8 @@ export default function Pospage(){
   const [cart, setCart] = useState([])
 
   const addToCart = (items) =>{
-  setCart(...cart, items)
+  setCart([...cart, items])
+  console.log(cart)
   }
 
   return(
@@ -28,8 +29,24 @@ export default function Pospage(){
           </Box>
 
 
-          <Box sx={{ width: 350}}>
-              
+          <Box sx={{ display: 'flex', flexDirection:'column', width: 350, gap: 2}}>
+            <Box>
+              <Card sx={{width: 300, height: 300}}>
+                <CardContent>
+                  <Typography variant='h6'>Ordered Summary</Typography>
+                </CardContent>
+              </Card>
+              </Box>
+
+              <Box>
+                <Card sx={{width: 300, height: 100}}>
+                  <CardContent>
+                    <Typography variant='h6' >
+                      Total
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Box>
           </Box>
 
      </Box>

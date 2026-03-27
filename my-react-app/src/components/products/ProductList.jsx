@@ -31,7 +31,8 @@ export default function ProductList({ searchQuery, onAddToCart}) {
           name={product.name}
           price={product.price}
           stock={product.stock}
-          onAddToCart = {() =>  onAddToCart(items)}
+          onAddToCart = {() =>  onAddToCart(product)}
+         
         />
       ))}
     </Box>

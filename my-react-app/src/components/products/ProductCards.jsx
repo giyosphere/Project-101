@@ -11,6 +11,7 @@ export default function ProductCard({ name, price, stock, onAddToCart }) {
   return (
     <Card sx={{ width: 200 }}>
       <CardContent>
+        
         <Typography variant="h6">{name}</Typography>
         <Typography variant="body2" color="text.secondary">
           ₱{price}
@@ -18,6 +19,9 @@ export default function ProductCard({ name, price, stock, onAddToCart }) {
         <Typography variant="body2" color="text.secondary">
           Stock: {stock}
         </Typography>
+      
+        
+
       </CardContent>
       <CardActions>
         { onAddToCart ? (
