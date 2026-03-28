@@ -51,15 +51,21 @@ export default function Pospage(){
                 <Box>
               <Card sx={{width: 300, height: 300}}>
                 <CardContent>
-                  <Typography variant='h6'>Ordered Summary</Typography>
+                  <Typography variant='h6'sx={{color: '#84B179'}}>Ordered Summary</Typography>
+
                  { cart.map((item) => (
-                   <Box key={item.id}>
-                  <Typography>
-                    {item.name}
-                  </Typography>
+                   <Box sx={{display: 'flex', flexDirection:'row', gap: 2 }} key={item.id}>
                   <Typography>
                     {item.quantity}
                   </Typography>
+                  <Typography>
+                    {item.name}
+                  </Typography>
+                    <Typography sx={{ ml: 10
+                    }}>
+                    ₱{item.price * item.quantity}
+                  </Typography>
+                
                  </Box>
                  ))}
                 
