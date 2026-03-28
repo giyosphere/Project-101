@@ -12,10 +12,26 @@ export default function Pospage(){
   
   const [cart, setCart] = useState([])
 
-  const addToCart = (items) =>{
-  setCart([...cart, items])
+  const addToCart = (product) =>{
+  const existingItem = cart.find((item) => item.id === product.id);
+
+
+  if(existingItem){
+   setCart(cart.map((item) =>{
+    if (item.id === product.id) {
+          return{...item, quantity: item.quantity +1};
+        }
+        return item;
+      }));
+      
+   } else{
+    setCart([...cart, {...product, quantity: 1}])
+  
+   }
+
+  };
   console.log(cart)
-  }
+  
 
   return(
     <Layout>
@@ -28,15 +44,31 @@ export default function Pospage(){
           <ProductList onAddToCart={addToCart} />
           </Box>
 
-
+         
           <Box sx={{ display: 'flex', flexDirection:'column', width: 350, gap: 2}}>
-            <Box>
+            
+            
+                <Box>
               <Card sx={{width: 300, height: 300}}>
                 <CardContent>
                   <Typography variant='h6'>Ordered Summary</Typography>
+                 { cart.map((item) => (
+                   <Box key={item.id}>
+                  <Typography>
+                    {item.name}
+                  </Typography>
+                  <Typography>
+                    {item.quantity}
+                  </Typography>
+                 </Box>
+                 ))}
+                
+
                 </CardContent>
               </Card>
               </Box>
+            
+          
 
               <Box>
                 <Card sx={{width: 300, height: 100}}>
@@ -58,5 +90,5 @@ export default function Pospage(){
   )
 
 
-  
 }
+
