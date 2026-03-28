@@ -24,23 +24,30 @@ export default function Pospage(){
         return item;
       }));
       
-   } else{
+   } else {
     setCart([...cart, {...product, quantity: 1}])
   
    }
 
   };
-  console.log(cart)
+  
+
+  const total = cart.reduce((sum, item) => {
+    return sum + (item.price * item.quantity);
+  }, 0);
   
 
   return(
     <Layout>
-       <Typography variant="h3">
+      
+      <Typography variant="h3" sx={{color: '#2FA4D7'}}>
         Point of sales
       </Typography>
      
-     <Box sx={{display: 'flex', flexDirection: 'row', gap: 2}}>
-          <Box sx={{flex: 2}}>
+     <Box sx={{display: 'flex', flexDirection: 'row', gap: 2, height: '95vh'}}>
+
+       
+          <Box sx={{flex: 2, overflowY: 'auto'}}>
           <ProductList onAddToCart={addToCart} />
           </Box>
 
@@ -49,8 +56,8 @@ export default function Pospage(){
             
             
                 <Box>
-              <Card sx={{width: 300, height: 300}}>
-                <CardContent>
+              <Card sx={{width: 350, height: 350}}>
+                <CardContent sx={{height: '100%'}}>
                   <Typography variant='h6'sx={{color: '#84B179'}}>Ordered Summary</Typography>
 
                  { cart.map((item) => (
@@ -63,7 +70,7 @@ export default function Pospage(){
                   </Typography>
                     <Typography sx={{ ml: 10
                     }}>
-                    ₱{item.price * item.quantity}
+                    ₱{(item.price * item.quantity).toLocaleString('en-PH', {minimumFractionDigits: 2})}
                   </Typography>
                 
                  </Box>
@@ -75,16 +82,21 @@ export default function Pospage(){
               </Box>
             
           
-
+             
               <Box>
-                <Card sx={{width: 300, height: 100}}>
+                <Card sx={{width: 350, height: 100}}>
                   <CardContent>
-                    <Typography variant='h6' >
-                      Total
+                    <Typography variant='h6' sx={{color: '#84B179'}} >
+                     Total:
+                    </Typography>
+
+                    <Typography>
+                      {total.toLocaleString('en-PH', { minimumFractionDigits: 2})}
                     </Typography>
                   </CardContent>
                 </Card>
               </Box>
+
           </Box>
 
      </Box>
