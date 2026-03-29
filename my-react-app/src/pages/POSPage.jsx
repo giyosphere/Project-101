@@ -5,6 +5,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import React, {useState} from 'react';
 import ProductList from '../components/products/ProductList';
+import CartItem from '../components/cart/cart';
 
 
 
@@ -35,6 +36,11 @@ export default function Pospage(){
   const total = cart.reduce((sum, item) => {
     return sum + (item.price * item.quantity);
   }, 0);
+
+
+
+
+
   
 
   return(
@@ -52,34 +58,21 @@ export default function Pospage(){
           </Box>
 
          
-          <Box sx={{ display: 'flex', flexDirection:'column', width: 350, gap: 2}}>
-            
-            
-                <Box>
-              <Card sx={{width: 350, height: 350}}>
-                <CardContent sx={{height: '100%'}}>
-                  <Typography variant='h6'sx={{color: '#84B179'}}>Ordered Summary</Typography>
+      <Box sx={{flex: 1, display: 'flex', flexDirection: 'column', gap: 2, overflowY: 'auto'}}>
 
-                 { cart.map((item) => (
-                   <Box sx={{display: 'flex', flexDirection:'row', gap: 2 }} key={item.id}>
-                  <Typography>
-                    {item.quantity}
-                  </Typography>
-                  <Typography>
-                    {item.name}
-                  </Typography>
-                    <Typography sx={{ ml: 10
-                    }}>
-                    ₱{(item.price * item.quantity).toLocaleString('en-PH', {minimumFractionDigits: 2})}
-                  </Typography>
-                
-                 </Box>
-                 ))}
-                
-
-                </CardContent>
-              </Card>
+              <Box>
+              <Typography variant='h6' sx={{color: '#84B179'}}>Items</Typography>
+              {cart.map((item) => (
+                <CartItem
+                  key={item.id}
+                  name={item.name}
+                  price={item.price}
+                  quantity={item.quantity}
+                />
+              ))}
               </Box>
+            
+         
             
           
              
@@ -97,9 +90,11 @@ export default function Pospage(){
                 </Card>
               </Box>
 
+                 </Box>
+
           </Box>
 
-     </Box>
+  
 
 
 
