@@ -38,7 +38,7 @@ export default function ProductList({ searchQuery, onAddToCart}) {
           name={product.name}
           price={product.price}
           stock={product.stock}
-          onAddToCart = {() =>  onAddToCart(product)}
+          onAddToCart = {onAddToCart ? () =>  onAddToCart(product): undefined }
          
         />
       ))}

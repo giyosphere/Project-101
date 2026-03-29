@@ -30,7 +30,7 @@ export default function ProductCard({ name, price, stock, onAddToCart }) {
         : (
             <>
              <Button label="Edit" variant= 'contained'/>
-          <Button label="Delete" variant='contained'/>
+             <Button label="Delete" variant='contained'/>
 
             </>
          
