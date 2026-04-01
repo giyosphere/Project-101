@@ -75,11 +75,15 @@ const onRemove = (productId) => {
 };
 
 
+//Count all items in the cart
+const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+
 // Calculate the total price of items in the cart
   const total = cart.reduce((sum, item) => {
     return sum + (item.price * item.quantity);
   }, 0);
   
+
 
   return(
     <Layout>
@@ -125,19 +129,35 @@ const onRemove = (productId) => {
                      Total:
                     </Typography>
                     <Box>
-                      {cart.map((item) => (
-                       <>
-                          <Typography>
-                       {item.name} x {item.quantity} = ₱{(item.price * item.quantity).toLocaleString('en-PH', { minimumFractionDigits: 2})}
+                      
+                      <Typography>
+                        <Box sx={{display: 'flex', flexDirection:'row', justifyContent: 'space-between', gap: 5}}>
+                              <Box sx={{ color: 'grey'}}>Items:</Box>
+                               <Box >{itemCount}</Box>
+                        </Box>
+                       
+                       
                       </Typography>
 
-                         <Typography>
-                      {total.toLocaleString('en-PH', { minimumFractionDigits: 2})}
-                    </Typography>
-                    </>
-                      ))
+
+                      <Box>
+                       <Typography>
+                          <Box sx={{display: 'flex', flexDirection:'row', justifyContent: 'space-between', gap: 5}}>
+
+                            <Box sx={{ color: 'grey'}}>Subtotal:</Box>
+                            <Box> {total.toLocaleString('en-PH', { minimumFractionDigits: 2})}</Box>  
+
+                          </Box>
+                           
+                          
+                           
+
+                       </Typography>
+                      </Box>
+                      
+                   
                      
-                      }
+                      
 
                    
                     
