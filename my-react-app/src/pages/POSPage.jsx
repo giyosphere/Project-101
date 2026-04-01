@@ -12,13 +12,14 @@ import CartItem from '../components/cart/cart';
 export default function Pospage(){
   
   const [cart, setCart] = useState([])
+  
 
   const addToCart = (product) =>{
   const existingItem = cart.find((item) => item.id === product.id);
 
 
   if(existingItem){
-   setCart(cart.map((item) =>{
+   setCart(cart.map((item) => {
     if (item.id === product.id) {
           return{...item, quantity: item.quantity +1};
         }
@@ -31,16 +32,26 @@ export default function Pospage(){
    }
 
   };
-  
+
+
+
+
+const onIncrease = (productId) => {
+const existingItem = cart.find((item) => item.id === productId);
+
+if(existingItem){
+   setCart(cart.map((item) => {
+    if (item.id === productId) {
+          return{...item, quantity: item.quantity + 1};
+        }
+        return item;
+      }));
+}
+}
 
   const total = cart.reduce((sum, item) => {
     return sum + (item.price * item.quantity);
   }, 0);
-
-
-
-
-
   
 
   return(
@@ -63,11 +74,13 @@ export default function Pospage(){
               <Box>
               <Typography variant='h6' sx={{color: '#84B179'}}>Items</Typography>
               {cart.map((item) => (
-                <CartItem
+                <CartItem 
                   key={item.id}
+                  id={item.id}
                   name={item.name}
                   price={item.price}
                   quantity={item.quantity}
+                  onIncrease={() => onIncrease(item.id)}
                 />
               ))}
               </Box>
@@ -102,6 +115,4 @@ export default function Pospage(){
     </Layout>
   )
 
-
 }
-
