@@ -13,7 +13,7 @@ export default function Pospage(){
   
   const [cart, setCart] = useState([])
   
-
+// Add a product to the cart
   const addToCart = (product) =>{
   const existingItem = cart.find((item) => item.id === product.id);
 
@@ -35,7 +35,7 @@ export default function Pospage(){
 
 
 
-
+// Increase quantity of a product in the cart
 const onIncrease = (productId) => {
 const existingItem = cart.find((item) => item.id === productId);
 
@@ -49,6 +49,33 @@ if(existingItem){
 }
 }
 
+// Decrease quantity of a product in the cart
+const onDecrease = (productId) => {
+const existingItem = cart.find((item) => item.id === productId);
+
+if(existingItem){
+   setCart(cart.map((item) => {
+    if (item.id === productId) {
+      if(item.quantity > 0)
+          return{...item, quantity: item.quantity - 1};
+        }
+        return item;
+      }));
+}
+}
+
+
+
+
+// Remove a product from the cart
+
+const onRemove = (productId) => {
+  const removing = cart.filter((item) => item.id !== productId);
+  setCart(removing);
+};
+
+
+// Calculate the total price of items in the cart
   const total = cart.reduce((sum, item) => {
     return sum + (item.price * item.quantity);
   }, 0);
@@ -81,6 +108,8 @@ if(existingItem){
                   price={item.price}
                   quantity={item.quantity}
                   onIncrease={() => onIncrease(item.id)}
+                  onDecrease={() => onDecrease(item.id)}
+                  onRemove={() => onRemove(item.id)}
                 />
               ))}
               </Box>
@@ -108,7 +137,6 @@ if(existingItem){
           </Box>
 
   
-
 
 
     

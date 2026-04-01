@@ -26,7 +26,7 @@ return(
        {quantity}
     </Typography>
     <Box sx={{display: 'flex', flexDirection:'row', gap: 4}}>
-      <Button label="-" variant='contained' onClick={onDecrease}/>
+      <Button label="-" variant='contained' onClick={() => onDecrease(id)}/>
       <Button label="x" variant='contained' onClick={onRemove}/> 
     </Box>
     
