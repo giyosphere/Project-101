@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';  
 import Button from '../common/Button';
 import { Box } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete'
 
 export default function CartItem({ id, name, price, quantity, onIncrease, onDecrease, onRemove }) {
 
@@ -26,8 +27,11 @@ return(
        {quantity}
     </Typography>
     <Box sx={{display: 'flex', flexDirection:'row', gap: 4}}>
-      <Button label="-" variant='contained' onClick={() => onDecrease(id)}/>
-      <Button label="x" variant='contained' onClick={onRemove}/> 
+      <Button  label="-" variant='contained' onClick={() => onDecrease(id)}/>
+      
+    <DeleteIcon sx={{color: 'red'}} onClick={() => onRemove(id)}/>
+        
+  
     </Box>
     
   </Box>

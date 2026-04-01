@@ -124,10 +124,25 @@ const onRemove = (productId) => {
                     <Typography variant='h6' sx={{color: '#84B179'}} >
                      Total:
                     </Typography>
+                    <Box>
+                      {cart.map((item) => (
+                       <>
+                          <Typography>
+                       {item.name} x {item.quantity} = ₱{(item.price * item.quantity).toLocaleString('en-PH', { minimumFractionDigits: 2})}
+                      </Typography>
 
-                    <Typography>
+                         <Typography>
                       {total.toLocaleString('en-PH', { minimumFractionDigits: 2})}
                     </Typography>
+                    </>
+                      ))
+                     
+                      }
+
+                   
+                    
+                    </Box>
+                    
                   </CardContent>
                 </Card>
               </Box>
