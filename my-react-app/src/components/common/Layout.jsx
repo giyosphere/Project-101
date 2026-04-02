@@ -7,7 +7,7 @@ export default function Layout({ children }) {
   return (
     <Box sx={{ display: 'flex' }}>
       <Sidebar />
-      <Box component="main" sx={{ flexGrow: 1, p: 3, mt: 8, ml: '220px', width: 'calc(100% - 220px)', overflow: 'auto' }}>
+      <Box component="main" sx={{ flexGrow: 1, p: 3, mt: 8, ml: '270px', width: 'calc(100% - 280px)', overflow: 'auto' }}>
         {children}
       </Box>
 

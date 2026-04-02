@@ -13,6 +13,9 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';  
 import LogOutIcon from '@mui/icons-material/Logout';
+import Logo from './logo';
+import Box from '@mui/material/Box';
+import MenuIcon from "@mui/icons-material/Menu";
 
 
 
@@ -26,6 +29,10 @@ const menuItems = [
   { text: 'Reports', icon: <BarChartIcon />, path:'/reports' },
 ];
 
+
+
+
+
 export default function Sidebar() {
 
 const navigate = useNavigate(); 
@@ -36,11 +43,19 @@ const { logout } = useAuth();
     navigate('/')
 
   };
- 
+
+
+  // Responsive state for mobile view
+
   
   return (
 
     <Drawer variant="permanent" anchor="left">
+      <Box>
+          <Logo size={220}/>
+      </Box>
+    
+    
       <List sx={{ width: 220, mt: 8}}>
         {menuItems.map((item) => (
           <ListItem key={item.text} disablePadding>
@@ -65,5 +80,6 @@ const { logout } = useAuth();
      
     </Drawer>
   );
+  
 }
 

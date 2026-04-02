@@ -8,9 +8,9 @@ export function AuthProvider({children}){
   const[user, setUser] = useState(null);
 
   const login = (username, password) => {
-    if(username === 'admin' && password === 'admin123')
+    if(username === 'Admin' && password === 'Admin123')
     {
-      setUser({username: 'admin', role: 'admin'});
+      setUser({username: 'Admin', role: 'admin'});
       return true;
     }
 

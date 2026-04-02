@@ -3,9 +3,13 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Button from '../components/common/Button';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext';
+import Logo from '@/components/common/logo';
+
+
+
 export default function LoginPage() {
 
    const { login } = useAuth();
@@ -50,10 +54,8 @@ export default function LoginPage() {
           width: 320,
         }}
       >
-        <LockOutlinedIcon sx={{alignSelf: 'center'}}/>
-        <Typography variant="h5" textAlign="center">
-          POS
-        </Typography>
+        
+        <Logo size={600} />
         <Typography variant="subtitle" textAlign="center" sx={{color: 'grey'}}>
           Sign in to continue
         </Typography>
