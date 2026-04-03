@@ -1,6 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import ProductCard from './ProductCards';
+import Grid from '@mui/material/Grid';
 
 
 const sampleProducts = [
@@ -31,7 +32,8 @@ export default function ProductList({ searchQuery, onAddToCart}) {
   );
 
   return (
-    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
+    <Grid>
+    <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} container spacing={2}>
       {filteredProducts.map((product) => (
         <ProductCard
           key={product.id}
@@ -42,6 +44,10 @@ export default function ProductList({ searchQuery, onAddToCart}) {
          
         />
       ))}
-    </Box>
+    </Grid>
+
+
+    </Grid>
+   
   );
 }

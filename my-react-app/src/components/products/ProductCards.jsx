@@ -7,9 +7,12 @@ import Button from '../common/Button';
 
 
 
+
 export default function ProductCard({ name, price, stock, onAddToCart }) {
   return (
-    <Card sx={{ width: 200 }}>
+   
+  
+        <Card sx={{ width: 200 }}>
       <CardContent>
         
         <Typography variant="h6">{name}</Typography>
@@ -38,5 +41,9 @@ export default function ProductCard({ name, price, stock, onAddToCart }) {
       </CardActions>
         
     </Card>
+  
+         
+    
+ 
   );
 }

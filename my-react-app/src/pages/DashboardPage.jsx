@@ -3,19 +3,18 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import CategoryIcon from '@mui/icons-material/Category';
 import WarningIcon from '@mui/icons-material/Warning';
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
-
 import Layout from '../components/common/Layout';
-
+import Grid from '@mui/material/Grid';  
+import cartIcon from '@/components/common/carticon';
 
 const stats = [
-  { label: 'Total Revenue', value: '₱0.00', icon: <AttachMoneyIcon sx={{color: '#1976d2'}}/>},
+  { label: 'Total Revenue', value: '₱0.00', icon: <cartIcon size={24} /> },
   { label: 'Total Orders', value: '0', icon: <ShoppingCartIcon sx={{color: '#2e7d32'}}/> },
   { label: 'Total Items Sold', value: '0', icon: <InventoryIcon sx={{color: '#0288d1' }}/>},
   { label: 'Total Products', value: '0', icon: <CategoryIcon sx={{color: '#9c27b0'}}/>},
@@ -28,9 +27,10 @@ export default function DashboardPage() {
     <Layout>
       <Typography variant="h3" mb={3}>Dashboard</Typography>
 
-      <Box sx={{ display: 'flex', gap: 3, flexWrap: 'wrap'}}>
-
+    
+        <Grid container spacing={3}>
         {stats.map((stat) => (
+          <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={stat.label}>
           <Card key={stat.label} sx={{ minWidth: 200 }}>
             <CardContent>
              
@@ -48,9 +48,10 @@ export default function DashboardPage() {
               </Typography>
             </CardContent>
           </Card>
+          </Grid>
         ))}
 
-      </Box>
+      </Grid>
     </Layout>
   );
 }
