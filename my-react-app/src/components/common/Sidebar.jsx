@@ -15,7 +15,9 @@ import { useAuth } from '../../context/AuthContext';
 import LogOutIcon from '@mui/icons-material/Logout';
 import Logo from './logo';
 import Box from '@mui/material/Box';
-import MenuIcon from "@mui/icons-material/Menu";
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 
 
 
@@ -33,7 +35,12 @@ const menuItems = [
 
 
 
-export default function Sidebar() {
+export default function Sidebar({open, setOpen}) {
+
+
+
+const theme = useTheme();
+const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
 const navigate = useNavigate(); 
 const { logout } = useAuth();
@@ -50,11 +57,16 @@ const { logout } = useAuth();
   
   return (
 
-    <Drawer variant="permanent" anchor="left">
+    <Drawer 
+    variant={isMobile ? 'temporary' : 'permanent'} 
+    anchor="left"
+    open={isMobile ? open : true}
+    onClose={() => setOpen(false)}
+    
+    >
       <Box>
           <Logo size={220}/>
-      </Box>
-    
+      </Box> 
     
       <List sx={{ width: 220, mt: 8}}>
         {menuItems.map((item) => (
@@ -77,9 +89,11 @@ const { logout } = useAuth();
           </ListItemButton>
         </ListItem>
       </List>
-     
+
     </Drawer>
   );
-  
+
+
+
 }
 

@@ -130,18 +130,18 @@ const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
                     </Typography>
                     <Box>
                       
-                      <Typography>
+                      
                         <Box sx={{display: 'flex', flexDirection:'row', justifyContent: 'space-between', gap: 5}}>
                               <Box sx={{ color: 'grey'}}>Items:</Box>
                                <Box >{itemCount}</Box>
                         </Box>
                        
                        
-                      </Typography>
+                      
 
 
                       <Box>
-                       <Typography>
+                     
                           <Box sx={{display: 'flex', flexDirection:'row', justifyContent: 'space-between', gap: 5}}>
 
                             <Box sx={{ color: 'grey'}}>Subtotal:</Box>
@@ -152,7 +152,7 @@ const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
                           
                            
 
-                       </Typography>
+                       
                       </Box>
                       
                    
