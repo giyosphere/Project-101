@@ -14,7 +14,7 @@ import Grid from '@mui/material/Grid';
 import cartIcon from '@/components/common/carticon';
 
 const stats = [
-  { label: 'Total Revenue', value: '₱0.00', icon: <cartIcon size={24} /> },
+  { label: 'Total Revenue', value: '₱0.00', icon: <AttachMoneyIcon sx={{color: '#2e7d32'}}/> },
   { label: 'Total Orders', value: '0', icon: <ShoppingCartIcon sx={{color: '#2e7d32'}}/> },
   { label: 'Total Items Sold', value: '0', icon: <InventoryIcon sx={{color: '#0288d1' }}/>},
   { label: 'Total Products', value: '0', icon: <CategoryIcon sx={{color: '#9c27b0'}}/>},
@@ -26,8 +26,6 @@ export default function DashboardPage() {
   return (
     <Layout>
       <Typography variant="h3" mb={3}>Dashboard</Typography>
-
-    
         <Grid container spacing={3}>
         {stats.map((stat) => (
           <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={stat.label}>
@@ -35,10 +33,9 @@ export default function DashboardPage() {
             <CardContent>
              
               <Box sx={{display: 'flex', flexDirection:'column', gap: 3}}>
-              <Box sx={{bgcolor: 'white', marginRight: 25, borderRadius: '1cap', padding: 2, boxShadow:' 5px 5px lightgrey', border: 'solid 0.1px'
-              }}>
+              
               {stat.icon}
-              </Box>
+             
               <Typography variant="h6" color="grey">
                 {stat.label}
               </Typography>
