@@ -68,7 +68,7 @@ const { logout } = useAuth();
           <Logo size={220}/>
       </Box> 
     
-      <List sx={{ width: 220, mt: 8}}>
+      <List sx={{ width: 220}}>
         {menuItems.map((item) => (
           <ListItem key={item.text} disablePadding>
             <ListItemButton onClick={() => navigate(item.path)}> 

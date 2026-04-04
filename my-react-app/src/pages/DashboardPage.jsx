@@ -11,7 +11,8 @@ import WarningIcon from '@mui/icons-material/Warning';
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import Layout from '../components/common/Layout';
 import Grid from '@mui/material/Grid';  
-import cartIcon from '@/components/common/carticon';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const stats = [
   { label: 'Total Revenue', value: '₱0.00', icon: <AttachMoneyIcon sx={{color: '#2e7d32'}}/> },
@@ -23,9 +24,24 @@ const stats = [
 ];
 
 export default function DashboardPage() {
+
+const theme = useTheme();
+const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+const isDesktop = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+
+
+
+
   return (
+    
     <Layout>
-      <Typography variant="h3" mb={3}>Dashboard</Typography>
+      {isMobile ? (
+     <Typography variant="h5" mb={3} sx={{ mt: 60, ml: 5, color: '#2FA4D7'} } >Dashboard</Typography>
+      ) : (
+        <Typography variant="h5" mb={3} sx={{mt: isDesktop ? 1 : 0, color: '#2FA4D7'} }>Dashboard</Typography>
+      )}   
+
+
         <Grid container spacing={3}>
         {stats.map((stat) => (
           <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={stat.label}>
@@ -49,6 +65,9 @@ export default function DashboardPage() {
         ))}
 
       </Grid>
+
     </Layout>
+
+      
   );
 }

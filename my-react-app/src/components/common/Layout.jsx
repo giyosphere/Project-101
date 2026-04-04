@@ -35,8 +35,7 @@ export default function Layout({ children }) {
       <Box component="main" sx={{ 
         flexGrow: 2,
         p: 3,
-        mt: isMobile ? 8 : 8 ,
-        pt: isMobile ? 7 : 2,
+        mt: isMobile ? 6 : 8 ,
         ml: isMobile ? 0 : '270px',
         width: isMobile ? '100%' : `calc(100% - 270px)`,
         overflow: 'auto'
