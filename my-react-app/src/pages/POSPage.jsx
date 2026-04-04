@@ -6,6 +6,10 @@ import CardContent from '@mui/material/CardContent';
 import React, {useState} from 'react';
 import ProductList from '../components/products/ProductList';
 import CartItem from '../components/cart/cart';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
+
 
 
 
@@ -83,24 +87,24 @@ const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
     return sum + (item.price * item.quantity);
   }, 0);
   
-
+//Mobile responsiveness
+const theme = useTheme();
+const isMobile = useMediaQuery(theme.breakpoints.down('md')); 
 
   return(
     <Layout>
       
-      <Typography variant="h3" sx={{color: '#2FA4D7'}}>
+      <Typography variant="h5" sx={{color: '#2FA4D7'}}>
         Point of sales
       </Typography>
      
-     <Box sx={{display: 'flex', flexDirection: 'row', gap: 2, height: '95vh'}}>
-
-       
+     <Box sx={{display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: 3, mt: 2}}>
           <Box sx={{flex: 2, overflowY: 'auto'}}>
           <ProductList onAddToCart={addToCart} />
           </Box>
 
          
-      <Box sx={{flex: 1, display: 'flex', flexDirection: 'column', gap: 2, overflowY: 'auto'}}>
+      <Box sx={{display: 'flex', flexDirection: 'column', gap: 2, overflowY: 'auto'}}>
 
               <Box>
               <Typography variant='h6' sx={{color: '#84B179'}}>Items</Typography>
@@ -123,7 +127,7 @@ const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
           
              
               <Box>
-                <Card sx={{width: 350, height: 100}}>
+                <Card sx={{width: '100%', height: 100}}>
                   <CardContent>
                     <Typography variant='h6' sx={{color: '#84B179'}} >
                      Total:
@@ -168,9 +172,8 @@ const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
               </Box>
 
                  </Box>
-
-          </Box>
-
+          
+</Box>
   
 
 

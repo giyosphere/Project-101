@@ -52,7 +52,7 @@ const { logout } = useAuth();
   };
 
 
-  // Responsive state for mobile view
+
 
   
   return (

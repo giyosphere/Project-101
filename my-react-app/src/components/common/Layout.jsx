@@ -5,6 +5,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import Sidebar from './Sidebar';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import Navbar from './Navbar';
 
 export default function Layout({ children }) {
 
@@ -19,6 +20,11 @@ export default function Layout({ children }) {
 
   
     <Box sx={{ display: 'flex' }}>
+       {isMobile && (
+      <Navbar open={open} setOpen={setOpen} />
+    )}
+
+    <Sidebar open={open} setOpen={setOpen} />
        {isMobile && (
             <Box sx={{position: 'fixed',top: 10, left: 10, zIndex: 1300}}>
               {open ? (

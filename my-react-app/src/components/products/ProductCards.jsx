@@ -8,11 +8,18 @@ import Button from '../common/Button';
 
 
 
+
 export default function ProductCard({ name, price, stock, onAddToCart }) {
+  
+
+    
+
   return (
    
-  
-        <Card sx={{ width: 200 }}>
+    
+        <Card sx={{ width:{ xs: '100%', sm: 200, flexGrow: 1} } }>
+
+     
       <CardContent>
         
         <Typography variant="h6">{name}</Typography>
@@ -26,6 +33,9 @@ export default function ProductCard({ name, price, stock, onAddToCart }) {
         
 
       </CardContent>
+      
+  
+
       <CardActions>
         { onAddToCart ? (
           <Button label="Add to cart" variant='contained' onClick={onAddToCart}/>
@@ -41,9 +51,13 @@ export default function ProductCard({ name, price, stock, onAddToCart }) {
       </CardActions>
         
     </Card>
-  
-         
+
+
+        
+    
+
+      
     
  
-  );
+);
 }
